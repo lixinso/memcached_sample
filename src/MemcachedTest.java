@@ -32,13 +32,19 @@ public class MemcachedTest {
 		
 		//Store and Retrieve an Serialized Object
 		
+		System.out.println("存之前的时间：" + System.currentTimeMillis());
 		
 		User user1 = new User();
 		user1.userName = "ZhangSan";
 		user1.password = "alongpasswordhere";
 		c.set("user1", 3600, user1);
+		
+		System.out.println("取之前的时间：" + System.currentTimeMillis());
+		
 		User myUser1 = (User)(c.get("user1"));
 		System.out.println(myUser1.userName + " " + myUser1.password);
+		
+		System.out.println("取之后的时间：" + System.currentTimeMillis());
 		
 	}
 
